@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flight Status | FlyDreamAir</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">✈</span>
+        <span>
+          <strong>FlyDreamAir</strong>
+          <small>Fly beyond expectations</small>
+        </span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="booking.html">Book</a>
+        <a href="manage-booking.html">Manage Booking</a>
+        <a class="active" href="flight-status.html">Flight Status</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <a class="nav-cta" href="booking.html">Book Now</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <span class="eyebrow">Flight status</span>
+      <h1>Check FlyDreamAir flight information</h1>
+      <p>Search by flight number to view scheduled route, aircraft and departure details.</p>
+    </section>
+
+    <section class="section status-layout">
+      <div class="card">
+        <div class="card-title">
+          <h2>Search flight status</h2>
+          <p>Enter a FlyDreamAir flight number, for example FDA101 or FDA202.</p>
+        </div>
+
+        <form id="statusForm" class="status-form">
+          <input type="text" id="statusFlightNo" placeholder="Enter flight number" required />
+          <button class="primary-btn" type="submit">Check Status</button>
+        </form>
+
+        <div id="statusResult" class="status-result"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <h2>Popular flight numbers</h2>
+          <p>Use these flight numbers to quickly check schedule information.</p>
+        </div>
+
+        <div class="flight-number-list">
+          <button data-flight-code="FDA101">FDA101</button>
+          <button data-flight-code="FDA202">FDA202</button>
+          <button data-flight-code="FDA404">FDA404</button>
+          <button data-flight-code="FDA505">FDA505</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 FlyDreamAir. All rights reserved.</p>
+    <p><a href="booking.html">Book</a> · <a href="manage-booking.html">Manage Booking</a> · <a href="contact.html">Contact</a></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

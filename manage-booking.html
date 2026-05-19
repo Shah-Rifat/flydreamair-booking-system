@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manage Booking | FlyDreamAir</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">✈</span>
+        <span>
+          <strong>FlyDreamAir</strong>
+          <small>Fly beyond expectations</small>
+        </span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="booking.html">Book</a>
+        <a class="active" href="manage-booking.html">Manage Booking</a>
+        <a href="flight-status.html">Flight Status</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <a class="nav-cta" href="booking.html">Book Now</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <span class="eyebrow">Manage booking</span>
+      <h1>View and manage your reservations</h1>
+      <p>Access bookings created in this browser, review ticket details, and cancel reservations when needed.</p>
+    </section>
+
+    <section class="section">
+      <div class="card">
+        <div class="card-title split-title">
+          <div>
+            <h2>My bookings</h2>
+            <p>Search by booking reference or passenger name.</p>
+          </div>
+          <button class="danger-btn" id="clearHistoryBtn">Clear All</button>
+        </div>
+
+        <div class="manage-tools">
+          <input type="search" id="bookingSearch" placeholder="Search booking reference or passenger name" />
+          <a class="primary-link" href="booking.html">Create New Booking</a>
+        </div>
+
+        <div id="bookingHistory" class="history-list"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div id="ticketPreview" class="ticket-preview"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 FlyDreamAir. All rights reserved.</p>
+    <p><a href="booking.html">Book</a> · <a href="manage-booking.html">Manage Booking</a> · <a href="contact.html">Contact</a></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
