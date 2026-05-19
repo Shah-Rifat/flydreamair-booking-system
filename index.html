@@ -1,224 +1,385 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FlyDreamAir Booking System</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="app-shell">
+    <header class="site-header">
+      <nav class="nav">
+        <a class="brand" href="#home" aria-label="FlyDreamAir home">
+          <span class="brand-mark">✈</span>
+          <span>
+            <strong>FlyDreamAir</strong>
+            <small>Booking System</small>
+          </span>
+        </a>
 
-  <div class="app">
-  <header class="hero">
-    <nav class="navbar">
-      <div class="logo">
-        <div class="logo-icon">✈</div>
-        <div>
-          <h1>FlyDreamAir</h1>
-          <p>Smart Flight Booking System</p>
-        </div>
-      </div>
-
-      <div class="nav-links">
-        <a href="#search">Search</a>
-        <a href="#booking">Booking</a>
-        <a href="#history">History</a>
-      </div>
-    </nav>
-
-    <div class="hero-content">
-      <div>
-        <p class="tag">Fly better. Book smarter.</p>
-        <h2>Book your next journey with FlyDreamAir</h2>
-        <p>
-          Search flights, select your seat, add services, and confirm your booking
-          in one simple web application.
-        </p>
-        <a href="#search" class="hero-btn">Start Booking</a>
-      </div>
-
-      <div class="hero-card">
-        <h3>Today’s Demo Routes</h3>
-        <p>Sydney → Melbourne</p>
-        <p>Sydney → Singapore</p>
-        <p>Melbourne → Brisbane</p>
-        <p>Sydney → Dhaka</p>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <section id="search" class="section">
-      <div class="section-title">
-        <p>Step 1</p>
-        <h2>Search Flights</h2>
-      </div>
-
-      <form id="searchForm" class="card form-grid">
-        <div>
-          <label>From</label>
-          <select id="fromCity" required>
-            <option value="">Select city</option>
-            <option>Sydney</option>
-            <option>Melbourne</option>
-            <option>Brisbane</option>
-            <option>Singapore</option>
-            <option>Dhaka</option>
-          </select>
+        <div class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#bookingApp">Book</a>
+          <a href="#manageBookings">Manage Booking</a>
+          <a href="#support">Support</a>
         </div>
 
-        <div>
-          <label>To</label>
-          <select id="toCity" required>
-            <option value="">Select city</option>
-            <option>Sydney</option>
-            <option>Melbourne</option>
-            <option>Brisbane</option>
-            <option>Singapore</option>
-            <option>Dhaka</option>
-          </select>
+        <button class="ghost-btn" id="viewBookingsBtn">My Bookings</button>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">Professional airline booking prototype</span>
+          <h1>Plan, book and manage your FlyDreamAir journey.</h1>
+          <p>
+            Search available flights, choose a seat, add travel services, review the total cost and generate a booking confirmation ticket.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#bookingApp">Start booking</a>
+            <a class="secondary-link" href="#manageBookings">Manage bookings</a>
+          </div>
+
+          <div class="trust-row" aria-label="Service highlights">
+            <div>
+              <strong>24/7</strong>
+              <span>Online booking</span>
+            </div>
+            <div>
+              <strong>16+</strong>
+              <span>Demo routes</span>
+            </div>
+            <div>
+              <strong>Local</strong>
+              <span>Saved history</span>
+            </div>
+          </div>
         </div>
 
-        <div>
-          <label>Departure Date</label>
-          <input type="date" id="departureDate" required>
+        <aside class="hero-panel">
+          <div class="panel-top">
+            <span>Featured route</span>
+            <strong>Sydney → Singapore</strong>
+          </div>
+          <div class="mini-ticket">
+            <div>
+              <small>Flight</small>
+              <strong>FDA202</strong>
+            </div>
+            <div>
+              <small>Aircraft</small>
+              <strong>Boeing 787</strong>
+            </div>
+            <div>
+              <small>Duration</small>
+              <strong>8h 45m</strong>
+            </div>
+            <div>
+              <small>From</small>
+              <strong>$780</strong>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="bookingApp" class="booking-section">
+        <div class="section-heading">
+          <span>Flight reservation workflow</span>
+          <h2>Book a Flight</h2>
+          <p>Complete the booking step-by-step. Only the relevant step is displayed, similar to a professional travel website.</p>
         </div>
 
-        <div>
-          <label>Trip Type</label>
-          <select id="tripType">
-            <option>One Way</option>
-            <option>Return</option>
-          </select>
+        <div class="progress-card">
+          <div class="progress-step active" data-step-dot="1"><span>1</span> Search</div>
+          <div class="progress-step" data-step-dot="2"><span>2</span> Flight</div>
+          <div class="progress-step" data-step-dot="3"><span>3</span> Passenger</div>
+          <div class="progress-step" data-step-dot="4"><span>4</span> Seat & Add-ons</div>
+          <div class="progress-step" data-step-dot="5"><span>5</span> Review</div>
+          <div class="progress-step" data-step-dot="6"><span>6</span> Confirm</div>
         </div>
 
-        <div>
-          <label>Passengers</label>
-          <input type="number" id="passengers" min="1" max="6" value="1">
+        <div class="workspace">
+          <section class="step-view active" id="stepSearch">
+            <div class="card search-card">
+              <div class="card-title">
+                <h3>Search Flights</h3>
+                <p>Choose your route, travel date and cabin preference.</p>
+              </div>
+
+              <form id="searchForm" class="search-grid">
+                <div>
+                  <label for="fromCity">From</label>
+                  <select id="fromCity" required>
+                    <option value="">Select departure city</option>
+                    <option>Sydney</option>
+                    <option>Melbourne</option>
+                    <option>Brisbane</option>
+                    <option>Singapore</option>
+                    <option>Dhaka</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="toCity">To</label>
+                  <select id="toCity" required>
+                    <option value="">Select arrival city</option>
+                    <option>Sydney</option>
+                    <option>Melbourne</option>
+                    <option>Brisbane</option>
+                    <option>Singapore</option>
+                    <option>Dhaka</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="departureDate">Departure Date</label>
+                  <input type="date" id="departureDate" required />
+                </div>
+
+                <div>
+                  <label for="tripType">Trip Type</label>
+                  <select id="tripType">
+                    <option>One Way</option>
+                    <option>Return</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="passengers">Passengers</label>
+                  <input type="number" id="passengers" min="1" max="6" value="1" />
+                </div>
+
+                <div>
+                  <label for="cabinClass">Cabin Class</label>
+                  <select id="cabinClass">
+                    <option>Economy</option>
+                    <option>Business</option>
+                    <option>First Class</option>
+                  </select>
+                </div>
+
+                <button class="primary-btn search-submit" type="submit">Search Available Flights</button>
+              </form>
+            </div>
+
+            <div class="destination-grid">
+              <article>
+                <span>Domestic</span>
+                <strong>Sydney ↔ Melbourne</strong>
+                <p>Popular business route with multiple demo options.</p>
+              </article>
+              <article>
+                <span>International</span>
+                <strong>Sydney ↔ Singapore</strong>
+                <p>Long-haul service with add-on travel services.</p>
+              </article>
+              <article>
+                <span>International</span>
+                <strong>Sydney ↔ Dhaka</strong>
+                <p>Demo route for international reservation workflow.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="step-view" id="stepFlights">
+            <div class="card">
+              <div class="card-title split">
+                <div>
+                  <h3>Available Flights</h3>
+                  <p id="routeSummary">Select the best flight from the search results.</p>
+                </div>
+                <button class="text-btn" id="changeSearchBtn">Change search</button>
+              </div>
+              <div id="flightResults" class="flight-results"></div>
+            </div>
+          </section>
+
+          <section class="step-view" id="stepPassenger">
+            <div class="card">
+              <div class="card-title">
+                <h3>Passenger Information</h3>
+                <p>Enter the main traveller details for the booking record.</p>
+              </div>
+
+              <form id="passengerForm" class="passenger-grid">
+                <div>
+                  <label for="fullName">Full Name</label>
+                  <input type="text" id="fullName" placeholder="e.g. Shah Hadiuzzaman Rifat" required />
+                </div>
+
+                <div>
+                  <label for="email">Email Address</label>
+                  <input type="email" id="email" placeholder="name@example.com" required />
+                </div>
+
+                <div>
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" id="phone" placeholder="+61..." required />
+                </div>
+
+                <div>
+                  <label for="passport">Passport / ID Number</label>
+                  <input type="text" id="passport" placeholder="Enter ID number" required />
+                </div>
+
+                <div>
+                  <label for="nationality">Nationality</label>
+                  <input type="text" id="nationality" placeholder="Enter nationality" required />
+                </div>
+
+                <div>
+                  <label for="dob">Date of Birth</label>
+                  <input type="date" id="dob" required />
+                </div>
+              </form>
+
+              <div class="button-row">
+                <button class="secondary-btn" data-go-step="2">Back to flights</button>
+                <button class="primary-btn" id="continueToSeatsBtn">Continue to seats</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="step-view" id="stepSeats">
+            <div class="two-column">
+              <div class="card">
+                <div class="card-title">
+                  <h3>Select Seat</h3>
+                  <p>Unavailable seats are greyed out. Choose one available seat.</p>
+                </div>
+                <div class="aircraft-label">Front of aircraft</div>
+                <div id="seatMap" class="seat-map"></div>
+                <p id="selectedSeatText" class="selected-seat">No seat selected</p>
+              </div>
+
+              <div class="card">
+                <div class="card-title">
+                  <h3>Add Travel Services</h3>
+                  <p>Select optional services to improve the passenger journey.</p>
+                </div>
+
+                <div class="addons">
+                  <label>
+                    <input type="checkbox" class="addon" value="Meal Package" data-price="25" />
+                    <span>
+                      <strong>Meal Package</strong>
+                      <small>Hot meal and beverage selection</small>
+                    </span>
+                    <b>$25</b>
+                  </label>
+
+                  <label>
+                    <input type="checkbox" class="addon" value="Extra Baggage" data-price="60" />
+                    <span>
+                      <strong>Extra Baggage</strong>
+                      <small>Additional checked baggage allowance</small>
+                    </span>
+                    <b>$60</b>
+                  </label>
+
+                  <label>
+                    <input type="checkbox" class="addon" value="Priority Boarding" data-price="35" />
+                    <span>
+                      <strong>Priority Boarding</strong>
+                      <small>Board earlier and save time</small>
+                    </span>
+                    <b>$35</b>
+                  </label>
+
+                  <label>
+                    <input type="checkbox" class="addon" value="Travel Insurance" data-price="45" />
+                    <span>
+                      <strong>Travel Insurance</strong>
+                      <small>Basic travel protection package</small>
+                    </span>
+                    <b>$45</b>
+                  </label>
+                </div>
+
+                <div class="button-row">
+                  <button class="secondary-btn" data-go-step="3">Back</button>
+                  <button class="primary-btn" id="continueToReviewBtn">Review booking</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="step-view" id="stepReview">
+            <div class="two-column">
+              <div class="card">
+                <div class="card-title">
+                  <h3>Review Booking</h3>
+                  <p>Check all information before confirming the booking.</p>
+                </div>
+                <div id="reviewDetails" class="review-details"></div>
+                <div class="button-row">
+                  <button class="secondary-btn" data-go-step="4">Back</button>
+                  <button class="primary-btn" id="confirmBookingBtn">Confirm Booking</button>
+                </div>
+              </div>
+
+              <aside class="price-card">
+                <span>Total payable</span>
+                <strong id="totalPrice">$0</strong>
+                <p>This is a simulation only. No real payment is processed.</p>
+              </aside>
+            </div>
+          </section>
+
+          <section class="step-view" id="stepConfirm">
+            <div class="confirmation-wrap">
+              <div class="success-icon">✓</div>
+              <h3>Booking Confirmed</h3>
+              <p>Your FlyDreamAir booking has been saved to local booking history.</p>
+              <div id="ticketOutput" class="ticket"></div>
+              <div class="button-row center">
+                <button class="secondary-btn" id="newBookingBtn">Create another booking</button>
+                <button class="primary-btn" id="goManageBtn">View booking history</button>
+              </div>
+            </div>
+          </section>
         </div>
+      </section>
 
-        <div>
-          <label>Cabin Class</label>
-          <select id="cabinClass">
-            <option>Economy</option>
-            <option>Business</option>
-            <option>First Class</option>
-          </select>
-        </div>
-
-        <button type="submit" class="primary-btn full">Search Available Flights</button>
-      </form>
-    </section>
-
-    <section class="section">
-      <div class="section-title">
-        <p>Step 2</p>
-        <h2>Available Flights</h2>
-      </div>
-
-      <div id="flightResults" class="flight-results">
-        <div class="empty-box">Search for a route to see available flights.</div>
-      </div>
-    </section>
-
-    <section id="booking" class="section booking-layout">
-      <div>
-        <div class="section-title">
-          <p>Step 3</p>
-          <h2>Passenger Details</h2>
-        </div>
-
-        <form id="passengerForm" class="card">
-          <label>Full Name</label>
-          <input type="text" id="fullName" placeholder="Enter passenger name" required>
-
-          <label>Email</label>
-          <input type="email" id="email" placeholder="example@email.com" required>
-
-          <label>Phone</label>
-          <input type="tel" id="phone" placeholder="Enter phone number" required>
-
-          <label>Passport / ID Number</label>
-          <input type="text" id="passport" placeholder="Enter passport or ID number" required>
-
-          <label>Nationality</label>
-          <input type="text" id="nationality" placeholder="Enter nationality" required>
-        </form>
-      </div>
-
-      <div>
-        <div class="section-title">
-          <p>Step 4</p>
-          <h2>Seat Selection</h2>
+      <section id="manageBookings" class="manage-section">
+        <div class="section-heading">
+          <span>Customer self-service</span>
+          <h2>Manage My Bookings</h2>
+          <p>Bookings are stored in this browser using localStorage for prototype demonstration.</p>
         </div>
 
         <div class="card">
-          <p class="small-note">Select one available seat.</p>
-          <div id="seatMap" class="seat-map"></div>
-          <p id="selectedSeatText" class="selected-seat">No seat selected</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section booking-layout">
-      <div>
-        <div class="section-title">
-          <p>Step 5</p>
-          <h2>In-flight Services</h2>
-        </div>
-
-        <div class="card addons">
-          <label>
-            <input type="checkbox" class="addon" value="Meal Package" data-price="25">
-            Meal Package - $25
-          </label>
-
-          <label>
-            <input type="checkbox" class="addon" value="Extra Baggage" data-price="60">
-            Extra Baggage - $60
-          </label>
-
-          <label>
-            <input type="checkbox" class="addon" value="Priority Boarding" data-price="35">
-            Priority Boarding - $35
-          </label>
-
-          <label>
-            <input type="checkbox" class="addon" value="Travel Insurance" data-price="45">
-            Travel Insurance - $45
-          </label>
-        </div>
-      </div>
-
-      <div>
-        <div class="section-title">
-          <p>Step 6</p>
-          <h2>Booking Summary</h2>
-        </div>
-
-        <div class="card summary-card">
-          <div id="summaryBox">
-            <p>No flight selected yet.</p>
+          <div class="card-title split">
+            <div>
+              <h3>Booking History</h3>
+              <p>View, track or cancel saved demo bookings.</p>
+            </div>
+            <button class="danger-btn" id="clearHistoryBtn">Clear All</button>
           </div>
 
-          <button id="confirmBookingBtn" class="primary-btn full">Confirm Booking</button>
+          <div id="bookingHistory" class="history-list"></div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="history" class="section">
-      <div class="section-title">
-        <p>Step 7</p>
-        <h2>Booking History</h2>
-      </div>
+      <section id="support" class="support-section">
+        <div class="support-card">
+          <div>
+            <span>Need help?</span>
+            <h2>FlyDreamAir Support Centre</h2>
+            <p>This prototype can be extended later with login, payment, customer profile and admin flight management features.</p>
+          </div>
+          <a class="primary-link" href="#bookingApp">Book a flight</a>
+        </div>
+      </section>
+    </main>
 
-      <div class="card">
-        <div id="bookingHistory"></div>
-        <button id="clearHistoryBtn" class="danger-btn">Clear Booking History</button>
-      </div>
-    </section>
-  </main>
-</div>
+    <footer class="footer">
+      <p>© 2026 FlyDreamAir Booking System Prototype</p>
+      <p>Created for CSIT214 IT Project Management demonstration.</p>
+    </footer>
+  </div>
 
   <script src="script.js" defer></script>
 </body>
